@@ -1,0 +1,51 @@
+<html>
+  <head>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Loja 01', 41523],
+          ['Loja 02', 64722],
+          ['Loja 03', 24557],
+          ['Loja 06', 25592],
+          ['Loja 07',18588],
+          ['CD-KM6', 3384],
+        ]);
+
+        var options = {
+          width: 1000, height: 480,
+          redFrom: 0, redTo: 80000,
+          yellowFrom:80001, yellowTo: 200000,
+          greenFrom: 51, greenTo: 100,
+          minorTicks: 5,
+          max: 500000
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        /*setInterval(function() {
+          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 13000);
+        setInterval(function() {
+          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 5000);
+        setInterval(function() {
+          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+          chart.draw(data, options);
+        }, 26000);*/
+      }
+    </script>
+  </head>
+  <body style="background-color: #696969;">
+    <div id="chart_div" style="width: 1000px; height: 240px; background-color: green;"></div>
+  </body>
+</html>
